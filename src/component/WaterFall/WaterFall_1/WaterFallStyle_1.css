@@ -1,0 +1,14 @@
+#wrapper_1 {
+  width: 1286px;
+  height: 873px;
+  margin: 0 auto;
+  border: 1px solid #555;
+  position: relative;
+  background-color: #ccc;
+  overflow-y: auto;
+}
+
+.waterfallItem_1 {
+  box-sizing: border-box;
+  position: absolute;
+}

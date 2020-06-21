@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { WaterFall1 } from './WaterFall';
+import Container from './container/Container.jsx'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <WaterFall1 />
+    <Container />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-import json1 from '../resource/WaterFall_1/1.json'
+import axios from 'axios';
 
-export default class waterFall_1 extends Component {
+export default class WaterFall_1 extends Component {
   constructor(props) {
     super(props);
     this.gap = 20; // 每张图片与周围图片的间隔大小
@@ -10,7 +9,7 @@ export default class waterFall_1 extends Component {
     this.pinWidth = 300; // 每张图片的宽度
     this.waterFallWidth = this.pinWidth * this.pinsNumberEachLine + this.gap * (this.pinsNumberEachLine - 1);
     this.waterFallHeight = 800;
-    this.commonQueryUrl = './resource/WaterFall/waterFall_111/{id}.json'; // 请求接口
+    this.commonQueryUrl = './resource/WaterFall/{id}.json'; // 请求接口
     this.commonImageUrl = 'http://hbimg.huabanimg.com/{key}_fw800/format/webp';
     this.heights = [0, 0, 0, 0]; // 每一列的高度
     this.state = {
@@ -20,18 +19,19 @@ export default class waterFall_1 extends Component {
 
   componentDidMount = () => {
     // 浏览器跨域访问限制导致无法访问本地json文件
-    // const url = this.commonQueryUrl.replace('{id}', 1);
-    // axios.get(url).then(resp => {
-    //   this.setState({ dataset: this.parseResp(resp) });
-    // });
+    const url = this.commonQueryUrl.replace('{id}', 1);
+    axios.get(url).then(resp => {
+      this.setState({ dataset: this.parseResp(resp) });
+    });
 
     // 直接导入 json 文件模拟网络请求
-    const dataList = this.parseResp({ body: json1 });
-    this.setState({ dataset: dataList });
+    // const dataList = this.parseResp({ body: json1 });
+    // this.setState({ dataset: dataList });
   };
 
   parseResp = resp => {
-    const pins = resp.body.pins;
+    console.log(resp);
+    const pins = resp.data.pins;
     return pins.map(pin => {
       const tempPin = {
         key: pin.file.key,
@@ -67,12 +67,12 @@ export default class waterFall_1 extends Component {
   render() {
     return (
       <div>
-        <div id="wrapper">
-          <div id="waterfall" style={{ height: `${this.state.waterFallHeight}px` }}>
+        <div id="wrapper_1">
+          <div id="waterfall_1" style={{ height: `${this.state.waterFallHeight}px` }}>
             {
               this.state.dataset.map(item => (
                 <div
-                  className="waterfallItem"
+                  className="waterfallItem_1"
                   style={{
                     top: `${item.top}px`,
                     left: `${item.left}px`
