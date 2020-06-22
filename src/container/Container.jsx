@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { WaterFall1, WaterFall2 } from '../component/WaterFall';
+import { WaterFall1, WaterFall2, WaterFall3 } from '../component/WaterFall';
 
 export default function Container() {
   return (
@@ -18,7 +18,10 @@ export default function Container() {
                 <Link to="/WaterFall_1">WaterFall_1</Link>
               </li>
               <li>
-                <Link to="/WaterFall_2">WaterFall_1</Link>
+                <Link to="/WaterFall_2">WaterFall_2</Link>
+              </li>
+              <li>
+                <Link to="/WaterFall_3">WaterFall_3</Link>
               </li>
             </ul>
           </nav>
@@ -30,6 +33,9 @@ export default function Container() {
             </Route>
             <Route path="/WaterFall_2">
               <WaterFall2 />
+            </Route>
+            <Route path="/WaterFall_3">
+              <WaterFall3 />
             </Route>
           </Switch>
         </div>
