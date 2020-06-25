@@ -1,14 +1,66 @@
 #wrapper_3 {
   width: 1286px;
-  height: 873px;
   margin: 0 auto;
-  border: 1px solid #555;
   position: relative;
   background-color: #ccc;
-  overflow: scroll;
 }
 
 .waterfallItem_3 {
   box-sizing: border-box;
   position: absolute;
+}
+
+#scroll-anchor {
+  position: fixed;
+  right: 80px;
+  bottom: 30px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  line-height: 36px;
+  text-align: center;
+  color: #999;
+  box-shadow: 0 0 5px 0 rgba(2,2,2,.2);
+  cursor: pointer;
+}
+
+#scroll-anchor:hover {
+  color: #00be06;
+  background-color: #e0f7e2;
+  box-shadow: none;
+  border-radius: 0% 50% 50% 0%;
+}
+
+@font-face {
+  font-family: iconfont;
+  src: url("/resource/font/iconfont.woff");
+}
+
+#icon-anchorTop {
+  font-size: 16px;
+  font-family: iconfont!important;
+}
+
+#icon-anchorTop::before {
+  content: "\E87A";
+}
+
+#icon-anchorTop-txt {
+  position: absolute;
+  right: 35px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 36px;
+  text-align: right;
+  max-width: 0px;
+  overflow: hidden;
+  background-color: #e0f7e2;
+  border-radius: 18px 0 0 18px;
+  white-space: nowrap;
+}
+
+#scroll-anchor:hover #icon-anchorTop-txt {
+  padding-left: 18px;
+  max-width: 200px;
+  transition: max-width .1s ease;
 }

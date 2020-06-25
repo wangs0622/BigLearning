@@ -13,9 +13,11 @@ export default class WaterFall_3 extends Component {
     this.commonImageUrl = 'http://hbimg.huabanimg.com/{key}_fw800/format/webp';
     this.heights = [0, 0, 0, 0]; // 每一列的高度
     this.state = {
-      dataset: []
+      dataset: [],
+      isAnchorTopShow: false,
     };
     this.queryId = 1;
+    this.scorllTimes = 1;
   }
 
   componentDidMount = () => {
@@ -23,8 +25,16 @@ export default class WaterFall_3 extends Component {
     axios.get(url).then(resp => {
       this.setState({ dataset: this.parseResp(resp) });
     });
-    // window.onscroll = this.handleScroll;
+    window.addEventListener('scroll', this.handleScroll);
   };
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScrollTop = () => {
+    document.documentElement.scrollTop = 0;
+  }
 
   parseResp = resp => {
     console.log(resp);
@@ -62,8 +72,13 @@ export default class WaterFall_3 extends Component {
   }
 
   handleScroll = () => {
-    // eslint-disable-next-line no-undef
-    const offsetTop = $('#bottom').offset().top;
+    console.log(`scroll times: ${this.scorllTimes++}`);
+    this.setState({ isAnchorTopShow: document.documentElement.scrollTop > 500 })
+    let offsetTop = 0;
+    const bottomItem = document.getElementById("bottom");
+    if (bottomItem) {
+      offsetTop = bottomItem.getBoundingClientRect().top;
+    }
     const clientHieght = document.documentElement.clientHeight;
     if (offsetTop - clientHieght < 1.5 * clientHieght) {
       const url = this.commonQueryUrl.replace('{id}', this.queryId++);
@@ -83,7 +98,6 @@ export default class WaterFall_3 extends Component {
           <div
             id="waterfall_3"
             style={{ height: `${this.state.waterFallHeight}px` }}
-            onWheel={this.handleScroll}
           >
             {
               this.state.dataset.map(item => (
@@ -109,6 +123,14 @@ export default class WaterFall_3 extends Component {
               加载中...
           </div>
           </div>
+        </div>
+        <div
+          id="scroll-anchor"
+          style={{ display: this.state.isAnchorTopShow ? 'block' : 'none' }}
+          onClick={this.handleScrollTop}
+        >
+          <span id="icon-anchorTop"></span>
+          <span id="icon-anchorTop-txt">返回顶部</span>
         </div>
       </div>
     );
