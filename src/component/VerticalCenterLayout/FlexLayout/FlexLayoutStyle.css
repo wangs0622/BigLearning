@@ -1,0 +1,149 @@
+#flexLayout .flexBox1 {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#flexLayout .flexBoxItem {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100px;
+  background-color: yellowgreen; 
+}
+
+#flexLayout .flexBox2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#flexLayout .flexBox3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#flexLayout .flexBox4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 200px;
+  background-color: #d3d2d2;
+}
+
+#flexLayout .flexBox5 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 200px;
+  background-color: #d3d2d2;
+}
+
+#flexLayout .flexBox6 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexBoxItem-flexShrink {
+  width: 400px;
+  height: 100px;
+  margin: 5px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100px;
+  background-color: yellowgreen;
+}
+
+.flexBox-flexShrink {
+  display: flex;
+}
+
+.flexBox-alignSelf {
+  display: flex;
+  height: 200px;
+  background-color: #d3d2d2;
+}
+
+.flexBox-dice {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  background-color: #d3d2d2;
+}
+
+.flexBox-dice-item {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+}
+
+.flexBox-dice-item-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.flexBox-dice .dice1 {
+  justify-content: center;
+  align-items: center;
+}
+
+.flexBox-dice .dice1 .flexBox-dice-item-dot {
+  background-color: red;
+}
+
+.flexBox-dice .dice2 {
+  justify-content: space-between;
+}
+
+.flexBox-dice .dice2 .flexBox-dice-item-dot:nth-child(2) {
+  align-self: flex-end;
+}
+
+.flexBox-dice .dice3 {
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.flexBox-dice .dice3 .flexBox-dice-item-dot:nth-child(2) {
+  align-self: center;
+}
+
+.flexBox-dice .dice3 .flexBox-dice-item-dot:nth-child(3) {
+  align-self: flex-start;
+}
+
+.flexBox-dice .dice4 {
+  justify-content: space-between;
+}
+
+.flexBox-dice .dice4 .flexBox-dice-item-dot {
+  background-color: red;
+}
+
+.flexBox-dice-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dice5 {
+  justify-content: space-between;
+}
+
+#flexBox-dice5-2 {
+  justify-content: center;
+}
+
+.dice6 {
+  justify-content: space-between;
+}
+
+
